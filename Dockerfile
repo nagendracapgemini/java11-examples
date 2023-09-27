@@ -1,6 +1,18 @@
-FROM ubuntu:22.04
-RUN apt update
-RUN apt install openjdk-11-jdk wget -y
-RUN wget java11-examples-0.0.1-SNAPSHOT.jar
-EXPOSE 8080
-CMD ["java", "-jar", "java11-examples-0.0.1-SNAPSHOT.jar"]
+# Use a base image with Java (e.g., OpenJDK) pre-installed
+FROM openjdk:11-jre-slim
+
+ 
+
+# Set the working directory
+WORKDIR /app
+
+ 
+
+# Copy the JAR file into the container using the environment variable
+COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/target/*.jar app.jar
+
+ 
+
+# Define the command to run your application
+CMD ["java", "-jar", "app.jar"]
+
