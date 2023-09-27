@@ -9,7 +9,7 @@ WORKDIR /app
  
 
 # Copy the JAR file into the container using the environment variable
-COPY .app
+COPY . /app
 
  
 
