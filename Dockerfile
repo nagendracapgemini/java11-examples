@@ -9,7 +9,7 @@ WORKDIR /app
  
 
 # Copy the JAR file into the container using the environment variable
-COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/target/*.jar app.jar
+COPY .app
 
  
 
